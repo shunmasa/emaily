@@ -5,5 +5,5 @@ module.exports = require('./prod');
 //imidiately assign
 }else{
  //we are in develompemt - return the dev key 
- modeul.exports = require('./dev');
+ module.exports = require('./dev');
 }   
