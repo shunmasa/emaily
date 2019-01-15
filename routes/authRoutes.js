@@ -9,11 +9,17 @@ scope: ['profile','email']
 })
 );
 
-app.get('/auth/google/callback',passport.authenticate('google'));
-
+app.get(
+'/auth/google/callback',
+passport.authenticate('google'),
+(req, res) => {
+res.redirect('/surveys');
+}
+);
+//request comes to here ,redirect to whoever sends request 
 app.get('/api/logout', (req, res) => {
 req.logout();
-res.send(req.user);
+res.redirect('/');
 });
 //request is totally destroyed so no response no longer sign in 
 
